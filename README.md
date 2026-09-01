@@ -11,7 +11,7 @@ python -m http.server 4173
 | File | What it is |
 |---|---|
 | `index.html` | Every page. Views are `<section class="view">`, switched by the URL hash. |
-| `style.css` | All styling. Brand tokens are at the top in `:root`. |
+| `style.css` | All styling. Brand tokens are at the top in `:root` — see **Visual system** below. |
 | `app.js` | Router, About chapters, crewmate cards, holder list, scroll reveals. |
 | `assets/` | Images. |
 | `_optimize_images.py` | Optional. Shrinks everything in `assets/`. Re-run after adding big photos. |
@@ -53,3 +53,52 @@ and text. Drop the image in `assets/` first (PNG with transparent background, ~8
 
 Drag the whole folder onto [app.netlify.com/drop](https://app.netlify.com/drop) — it is a
 plain static site, so any host works. No server needed.
+
+## Visual system — "pinned wall"
+
+Drawn from the studio artwork: the spray mural, the Goyard chibi triptychs, the expo
+photos with line art drawn over them, and the handwritten notes.
+
+**Ground.** Warm plaster (`--wall`), not white. Uneven light plus a film-grain overlay,
+both in `.paper-grid` — no image file needed.
+
+**Colour.** Near-monochrome ink on paper with **one pop per section**, never several at
+once. Each view sets its own `--accent`, so buttons, kickers, rules and stamps all follow:
+
+| Section | Accent | From |
+|---|---|---|
+| Menu, Drop 0 | `--pop-gold` | the LV box |
+| About ch.1 | `--pop-blue` | blue Goyard tote |
+| About ch.2 | `--pop-gold` | yellow tote |
+| About ch.3 | `--lamp` | the sewing-room lamp |
+| Stock | `--pop-red` | red tote, the red underline |
+| Owner | `--pop-navy` | the durag |
+
+To re-skin a section, change one line — e.g. `#v-stock{--accent:var(--pop-blue)}`.
+
+**Type.** Permanent Marker for headers and product names, Caveat for anything diaristic
+(asides, the manifesto, button notes), Courier Prime for specs and labels, Archivo for
+body and the big display numbers.
+
+**Motifs.**
+- `.pin` — a white pushpin. Drop one inside any `position:relative` block.
+- `.section-h` — marker-stroke underline; it is an SVG mask (`--stroke`), so it takes the
+  section's accent automatically.
+- `.trip` — triptych with hairline rules between panes, like the pinned mural sheets.
+- Photography is desaturated and wears `assets/lineart-white.png` — the mascot as glowing
+  white line art. Hover fades the drawing out and the colour photo back in.
+
+**Regenerating the line art.** `assets/lineart-white.png` is derived from `assets/mark-x.png`
+by turning ink darkness into alpha and painting it white. If the mark ever changes, rebuild
+it rather than inverting the PNG in CSS — inverting a filled drawing gives a solid blob.
+
+### Art still to drop in
+
+These were shown as references but are not in the repo. Each has a slot ready:
+
+- the spray mural sheets → would replace the `.trip` block or head the About chapter
+- the Goyard chibi triptych → ideal for `.belief-grid`
+- the sewing-room illustration → belongs beside the manifesto quote
+- expo / group photos → drop into `.worn`, they already get the line-art treatment
+
+Put them in `assets/`, run `python _optimize_images.py`, then swap the `src` attributes.

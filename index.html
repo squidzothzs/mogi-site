@@ -8,7 +8,7 @@
 <link rel="icon" href="assets/mark-x.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&family=Courier+Prime:wght@400;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&family=Caveat:wght@400;600;700&family=Courier+Prime:wght@400;700&family=Permanent+Marker&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -72,18 +72,21 @@
 
     <div class="belief-grid">
       <div class="card reveal">
+        <span class="pin pin--r"></span>
         <span class="card__x">✕</span>
         <h3>Core belief 01</h3>
         <p><em>[EDIT]</em> Everything starts as a drawing. If it can't survive being sketched
           badly at 2am, it doesn't deserve the cotton.</p>
       </div>
       <div class="card reveal">
+        <span class="pin pin--r"></span>
         <span class="card__x">✕</span>
         <h3>Core belief 02</h3>
         <p><em>[EDIT]</em> Keep the garment simple. The logo can shrink to a tag on the hem
           and the brand still exists.</p>
       </div>
       <div class="card reveal">
+        <span class="pin pin--r"></span>
         <span class="card__x">✕</span>
         <h3>Core belief 03</h3>
         <p><em>[EDIT]</em> Small numbers, no restock. We'd rather twenty people own it than
@@ -100,6 +103,10 @@
         <li><span class="mono">STEP 04</span><p><em>[EDIT]</em> Build the crew. The brand grows by people, not by ads.</p></li>
       </ol>
     </div>
+
+    <p class="note reveal" style="margin-top:clamp(40px,6vw,72px);max-width:34ch">
+      He&rsquo;s bad at this. He still wakes up every day and makes something,
+      just to be better than yesterday&rsquo;s MOGI.</p>
 
     <div class="ch__nav"><span></span><button class="btn btn--nav" data-go="1">Who made MOGI &rarr;</button></div>
   </article>
@@ -128,6 +135,13 @@
       </figure>
     </div>
 
+    <blockquote class="manifesto reveal">
+      <span class="pin"></span>
+      <p>These pieces were never meant to be sold. They were meant to
+         <span class="fade">exist. To be found. To be worn. To fade.</span></p>
+      <cite>MOGI &mdash; studio wall</cite>
+    </blockquote>
+
     <div class="ch__nav">
       <button class="btn btn--nav" data-go="0">&larr; What is MOGI</button>
       <button class="btn btn--nav" data-go="2">Crewmates &rarr;</button>
@@ -140,7 +154,7 @@
       <svg class="sea__svg" viewBox="0 0 1200 620" preserveAspectRatio="xMaxYMax slice" aria-label="A boat at sea carrying four crewmates, with more silhouettes waiting in the fog">
         <defs>
           <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#101a33"/><stop offset=".62" stop-color="#22355e"/><stop offset="1" stop-color="#31507f"/>
+            <stop offset="0" stop-color="#0f1c36"/><stop offset=".62" stop-color="#22355e"/><stop offset="1" stop-color="#31507f"/>
           </linearGradient>
           <radialGradient id="glow" cx=".5" cy=".5" r=".5">
             <stop offset="0" stop-color="#f2b705" stop-opacity=".55"/><stop offset="1" stop-color="#f2b705" stop-opacity="0"/>
@@ -159,8 +173,8 @@
         </defs>
 
         <rect width="1200" height="620" fill="url(#sky)"/>
-        <circle cx="1010" cy="120" r="165" fill="url(#glow)"/>
-        <circle cx="1010" cy="120" r="44" fill="#f2b705" opacity=".92"/>
+        <circle cx="998" cy="178" r="150" fill="url(#glow)"/>
+        <circle cx="998" cy="178" r="44" fill="#f2b705" opacity=".92"/>
 
         <!-- silhouettes waiting in the fog: the crewmates we haven't met yet -->
         <g class="ghosts" fill="#050a14">
@@ -221,10 +235,12 @@
         <path class="wave wave--near" d="M0 512c170-34 270 34 440 0s270-34 440 0 270 34 440 0v150H0z" fill="#0f1c36"/>
       </svg>
 
+      <div class="sea__flash" aria-hidden="true"></div>
+
       <div class="sea__copy">
         <p class="mono kicker kicker--light">03 — THE CREW</p>
         <h1 class="display display--light">We are looking<br>for crewmates<span class="dot">.</span></h1>
-        <p class="lede lede--light reveal">Four of us in the boat. The rest of the seats are empty on
+        <p class="lede lede--light">Four of us in the boat. The rest of the seats are empty on
           purpose. Designers, photographers, cutters, printers, anyone who can make
           the thing better than we can.</p>
         <p class="hint mono">TAP A SILHOUETTE TO SEE WHO IS WHO</p>
@@ -278,6 +294,7 @@
     </article>
 
     <div class="registry reveal">
+      <span class="pin"></span>
       <p class="mono registry__h">HOLDERS · DROP 0 · EDITION 1–20</p>
       <ol class="registry__list" id="registry"></ol>
       <p class="registry__note mono">NAMES RELEASED WITH HOLDER PERMISSION · <em>[EDIT — send names to fill in]</em></p>

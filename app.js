@@ -20,8 +20,9 @@ const ROUTES = { '': 'v-menu', '/': 'v-menu', '/about': 'v-about', '/stock': 'v-
 function route() {
   const id = ROUTES[location.hash.slice(1)] || 'v-menu';
   document.querySelectorAll('.view').forEach(v => v.classList.toggle('is-active', v.id === id));
+  if (id !== 'v-about') document.body.classList.remove('sea-mode');
   window.scrollTo(0, 0);
-  requestAnimationFrame(observeReveals);   // let layout settle before measuring           // new view = new elements to watch
+  requestAnimationFrame(observeReveals);   // new view = new elements to watch
 }
 window.addEventListener('hashchange', route);
 
@@ -29,6 +30,8 @@ window.addEventListener('hashchange', route);
 function showChapter(n) {
   document.querySelectorAll('#v-about .ch').forEach(c => c.classList.toggle('is-on', +c.dataset.ch === n));
   document.querySelectorAll('.rail__dot').forEach(d => d.classList.toggle('is-on', +d.dataset.ch === n));
+  // chapter 3 takes the whole page under water
+  document.body.classList.toggle('sea-mode', n === 2);
   document.getElementById('v-about').scrollIntoView({ behavior: 'smooth', block: 'start' });
   requestAnimationFrame(observeReveals);   // let layout settle before measuring
 }
