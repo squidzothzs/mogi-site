@@ -80,11 +80,18 @@ To re-skin a section, change one line — e.g. `#v-stock{--accent:var(--pop-blue
 (asides, the manifesto, button notes), Courier Prime for specs and labels, Archivo for
 body and the big display numbers.
 
+**Drawn boxes.** `--sketch-a` / `--sketch-b` are asymmetric border-radii — a box drawn by
+hand never closes square. Buttons also carry a `::before` ghost outline, offset a few pixels:
+the marker going round twice.
+
 **Motifs.**
 - `.pin` — a white pushpin. Drop one inside any `position:relative` block.
 - `.section-h` — marker-stroke underline; it is an SVG mask (`--stroke`), so it takes the
   section's accent automatically.
 - `.trip` — triptych with hairline rules between panes, like the pinned mural sheets.
+- `.menu__sheet` — pinned sheet with a strip of masking tape across the top.
+- The crewmates scene is white marker line art on navy: stroked hulls and wave crests,
+  spray drips off the hull, crew as white cut-outs with an ink outline.
 - Photography is desaturated and wears `assets/lineart-white.png` — the mascot as glowing
   white line art. Hover fades the drawing out and the colour photo back in.
 

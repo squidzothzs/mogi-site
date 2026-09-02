@@ -26,8 +26,10 @@
   </div>
 
   <div class="menu">
-    <img class="menu__logo" src="assets/logo.png" alt="MOGI">
-    <p class="menu__tag mono">EST. 2026 · INDEPENDENT · HAND-DRAWN · <span class="ink-mark">EXISTS.</span></p>
+    <div class="menu__sheet">
+      <img class="menu__logo" src="assets/logo.png" alt="MOGI">
+      <p class="menu__tag mono">EST. 2026 · INDEPENDENT · HAND-DRAWN · <span class="ink-mark">EXISTS.</span></p>
+    </div>
 
     <nav class="menu__nav">
       <a class="btn btn--lg" href="#/about">
@@ -174,7 +176,8 @@
 
         <rect width="1200" height="620" fill="url(#sky)"/>
         <circle cx="998" cy="178" r="150" fill="url(#glow)"/>
-        <circle cx="998" cy="178" r="44" fill="#f2b705" opacity=".92"/>
+        <circle cx="998" cy="178" r="44" fill="#f6d78a" opacity=".95"/>
+        <circle cx="998" cy="178" r="52" fill="none" stroke="#f6f3ec" stroke-width="2.5" stroke-opacity=".38"/>
 
         <!-- silhouettes waiting in the fog: the crewmates we haven't met yet -->
         <g class="ghosts" fill="#050a14">
@@ -190,12 +193,15 @@
         </g>
 
         <!-- far wave -->
-        <path class="wave wave--far" d="M0 430c150-26 250 26 400 0s250-26 400 0 250 26 400 0v220H0z" fill="#1a2b4d"/>
+        <g class="wave wave--far">
+          <path d="M0 430c150-26 250 26 400 0s250-26 400 0 250 26 400 0v220H0z" fill="#1a2b4d"/>
+          <path d="M0 430c150-26 250 26 400 0s250-26 400 0 250 26 400 0" fill="none" stroke="#f6f3ec" stroke-width="2.5" stroke-opacity=".30" stroke-linecap="round"/>
+        </g>
 
         <!-- the boat -->
         <g class="boat">
           <!-- mast + sail, left end so the deck stays readable -->
-          <path d="M700 400V148" stroke="#0a1120" stroke-width="9"/>
+          <path d="M700 400V148" stroke="#f6f3ec" stroke-width="6" stroke-linecap="round"/>
           <path d="M706 160c96 26 140 74 130 96-30 40-88 62-130 66z" fill="#f4f0e6" opacity=".93"/>
           <path d="M700 146l42 13-42 15z" fill="#c0272d"/>
 
@@ -225,14 +231,24 @@
           </g>
 
           <!-- hull -->
-          <rect x="632" y="396" width="560" height="16" rx="8" fill="#2c4570"/>
-          <path d="M640 412h544l-58 76H698z" fill="#0a1120"/>
-          <path d="M660 430h504l-8 14H668z" fill="#16233d" opacity=".8"/>
+          <rect x="632" y="396" width="560" height="16" rx="8" fill="#101d38" stroke="#f6f3ec" stroke-width="3.5"/>
+          <path d="M640 412h544l-58 76H698z" fill="#101d38" stroke="#f6f3ec" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M664 442h496" stroke="#f6f3ec" stroke-width="2.5" stroke-opacity=".5" stroke-linecap="round"/>
+          <!-- spray drips off the hull -->
+          <g stroke="#f6f3ec" stroke-width="3" stroke-linecap="round" opacity=".4">
+            <path d="M706 490v20"/><path d="M792 492v34"/><path d="M906 490v14"/><path d="M1034 492v26"/>
+          </g>
         </g>
 
         <!-- near waves -->
-        <path class="wave wave--mid" d="M0 466c160-30 260 30 420 0s260-30 420 0 260 30 420 0v190H0z" fill="#16274a"/>
-        <path class="wave wave--near" d="M0 512c170-34 270 34 440 0s270-34 440 0 270 34 440 0v150H0z" fill="#0f1c36"/>
+        <g class="wave wave--mid">
+          <path d="M0 466c160-30 260 30 420 0s260-30 420 0 260 30 420 0v190H0z" fill="#16274a"/>
+          <path d="M0 466c160-30 260 30 420 0s260-30 420 0 260 30 420 0" fill="none" stroke="#f6f3ec" stroke-width="2.5" stroke-opacity=".40" stroke-linecap="round"/>
+        </g>
+        <g class="wave wave--near">
+          <path d="M0 512c170-34 270 34 440 0s270-34 440 0 270 34 440 0v150H0z" fill="#0f1c36"/>
+          <path d="M0 512c170-34 270 34 440 0s270-34 440 0 270 34 440 0" fill="none" stroke="#f6f3ec" stroke-width="2.5" stroke-opacity=".52" stroke-linecap="round"/>
+        </g>
       </svg>
 
       <div class="sea__flash" aria-hidden="true"></div>
@@ -382,6 +398,7 @@
 
 <!-- ============ FOOTER ============ -->
 <footer class="foot">
+  <p class="foot__sign">Made by hand. Made in small numbers. Made anyway.</p>
   <div class="foot__row">
     <!-- TODO: real links -->
     <a href="#" target="_blank" rel="noopener">Instagram</a>
