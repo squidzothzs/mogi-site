@@ -88,8 +88,8 @@ the marker going round twice.
 step list — those read as generic. Instead: hand-lettered headings (`.display--hand`), a
 speech bubble off the mascot (`.say` / `.bubble`), margin notes taped up crooked at four
 different widths and rotations (`.notes__n`), a run-on written straight on the wall
-(`.scrawl`), a hard-divider photo triptych (`.trip--photo`), and a caption burned into the
-photograph (`.burn`). Copy is lowercase and blunt, in the founder's own voice.
+(`.scrawl`), a hard-divider photo triptych (`.trip--photo`, which wears the line art like `.worn` does),
+and a caption burned into the photograph (`.burn`). Copy is lowercase and blunt, in the founder's own voice.
 
 **Motifs.**
 - `.pin` — a white pushpin. Drop one inside any `position:relative` block.

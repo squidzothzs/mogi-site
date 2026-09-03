@@ -319,7 +319,18 @@ em{font-style:normal;color:var(--flag);font-weight:600}
 .trip--photo img{width:100%;aspect-ratio:4/5;object-fit:cover;
   filter:grayscale(1) contrast(1.09);transition:filter .5s,transform .7s var(--ease)}
 .trip--photo figure:hover img{filter:grayscale(0) contrast(1);transform:scale(1.04)}
-.trip--photo figcaption{display:block;padding:16px 18px 20px;border-top:var(--rule);
+/* the mascot drawn over the photo — greyscale + line art until you hover,
+   then the drawing lifts off and the colour comes back (same as .worn) */
+.trip--photo figure::after{
+  content:"";position:absolute;top:0;left:0;width:100%;aspect-ratio:4/5;z-index:1;
+  background:url("assets/lineart-white.png") no-repeat center 46%/58% auto;
+  filter:drop-shadow(0 0 8px rgba(255,255,255,.6));
+  opacity:.8;pointer-events:none;
+  transition:opacity .45s var(--ease),scale .45s var(--ease);
+}
+.trip--photo figure:hover::after{opacity:0;scale:1.14}
+.trip--photo figcaption{position:relative;z-index:2;
+  display:block;padding:16px 18px 20px;border-top:var(--rule);
   font-family:var(--hand);font-size:16px;text-transform:lowercase;background:var(--paper)}
 .trip--photo figcaption span{display:block;margin-top:6px;font-family:'Archivo',sans-serif;
   font-size:14px;line-height:1.45;color:var(--graphite);text-transform:none}
