@@ -242,76 +242,105 @@ em{font-style:normal;color:var(--flag);font-weight:600}
 .ch__nav{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
   margin-top:clamp(52px,7vw,96px)}
 
-/* belief cards — pinned paper, pencil shading, slightly off-square */
-.belief-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:clamp(20px,3vw,32px)}
-.card{
-  position:relative;background:var(--paper);border:var(--rule);padding:34px 26px 28px;
-  box-shadow:0 12px 26px -16px rgba(20,17,15,.55);
-  transition:transform .3s var(--ease),box-shadow .3s var(--ease),rotate .3s var(--ease);
-;border-radius:var(--sketch-a)}
-.card::after{ /* graphite pooling at the foot, like the chibi drawings */
-  content:"";position:absolute;inset:auto 0 0 0;height:56px;pointer-events:none;
-  background:linear-gradient(180deg,transparent,rgba(20,17,15,.055));
+/* ================================================================
+   ABOUT v3 — a wall, not a slide deck
+   Hand lettering, taped margin notes at odd angles, a speech bubble
+   off the mascot, captions burned into the photograph.
+   ================================================================ */
+.display--hand{
+  font-family:var(--hand);font-weight:400;text-transform:none;letter-spacing:-.005em;
+  line-height:.96;font-size:clamp(40px,8vw,96px);
 }
-.card:nth-child(1){rotate:-.7deg}
-.card:nth-child(2){rotate:.6deg}
-.card:nth-child(3){rotate:-.4deg}
-.card:hover{transform:translateY(-9px);rotate:0deg;box-shadow:0 26px 40px -20px rgba(20,17,15,.6)}
-.card__x{
-  position:absolute;top:-15px;left:22px;width:32px;height:32px;display:grid;place-items:center;
-  background:var(--accent);color:var(--paper);border:2px solid var(--ink);border-radius:50%;
-  font-size:13px;transition:rotate .45s var(--ease);z-index:5;
-}
-.card:hover .card__x{rotate:180deg}
-.card h3{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.18em;
-  color:var(--muted);margin-bottom:12px}
-.card p{font-size:16px;line-height:1.55}
 
-/* the steps — ruled like a notebook page */
-.goals__list{list-style:none;display:grid}
-.goals__list li{
-  display:grid;grid-template-columns:104px 1fr;gap:24px;align-items:start;
-  padding:24px 10px;border-bottom:1px dashed rgba(20,17,15,.28);
-  transition:background .25s,padding-left .3s var(--ease);
+/* the mascot says it, in a drawn bubble */
+.say{display:flex;align-items:flex-end;gap:clamp(10px,2vw,28px);
+  margin-bottom:clamp(44px,6vw,76px)}
+.bubble{
+  position:relative;flex:1;max-width:44ch;background:var(--paper);
+  border:2.5px solid var(--ink);border-radius:26px 30px 24px 28px/28px 24px 30px 26px;
+  padding:clamp(22px,3vw,32px) clamp(24px,3vw,36px);
+  box-shadow:0 14px 28px -20px rgba(20,17,15,.7);rotate:-.6deg;
 }
-.goals__list li:hover{background:rgba(20,17,15,.035);padding-left:24px}
-.goals__list span{font-family:var(--mono);font-size:11px;letter-spacing:.16em;
-  color:var(--accent);padding-top:5px}
-.goals__list p{max-width:58ch}
-
-/* who — photography wearing line art */
-.who-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(20px,3vw,36px)}
-.who__img{position:relative;overflow:hidden;border:var(--rule);aspect-ratio:4/5;background:var(--wall-2)}
-.who__img img{width:100%;height:100%;object-fit:cover;
-  filter:grayscale(1) contrast(1.08) brightness(1.03);
-  transition:transform .7s var(--ease),filter .5s}
-.who:hover .who__img img{transform:scale(1.06);filter:grayscale(.5) contrast(1.1)}
-/* the drawn-on mascot, glowing white — the motif from the group shots */
-.who__img::after{
-  content:"";position:absolute;right:-8%;bottom:-8%;width:64%;aspect-ratio:1;
-  /* pre-rendered white line art (see _optimize_images notes) */
-  background:url("assets/lineart-white.png") no-repeat center/contain;
-  filter:drop-shadow(0 0 8px rgba(255,255,255,.75));
-  opacity:0;transform:translateY(14px) rotate(-6deg);
-  transition:opacity .45s var(--ease),transform .45s var(--ease);pointer-events:none;
+.bubble p{font-size:clamp(17px,2.1vw,22px);line-height:1.45}
+.bubble p+p{margin-top:.7em;font-family:var(--hand);font-size:clamp(17px,2.2vw,24px)}
+.bubble::before,.bubble::after{content:"";position:absolute;bottom:26px;
+  clip-path:polygon(0 0,100% 46%,4% 100%)}
+.bubble::before{right:-31px;bottom:23px;width:40px;height:32px;background:var(--ink)}
+.bubble::after {right:-26px;width:34px;height:26px;background:var(--paper)}
+.say__mascot{width:clamp(96px,15vw,190px);align-self:flex-end;rotate:5deg;
+  filter:drop-shadow(0 14px 12px rgba(20,17,15,.25))}
+@media(max-width:700px){
+  .say{flex-direction:column;align-items:flex-start}
+  .bubble::before,.bubble::after{right:auto;left:38px;bottom:-22px;
+    clip-path:polygon(0 0,86% 0,18% 100%)}
+  .bubble::before{bottom:-27px;left:33px}
+  .say__mascot{align-self:flex-end;margin-top:-6px}
 }
-.who:hover .who__img::after{opacity:.95;transform:translateY(0) rotate(-6deg)}
-.who figcaption{display:block;margin-top:16px}
-.who figcaption strong{display:block;font-family:var(--hand);font-size:19px;text-transform:uppercase}
-.who figcaption span{display:block;font-size:15px;color:var(--graphite);margin-top:5px;max-width:38ch}
 
-/* manifesto — the line from their own artwork, on a pinned sheet */
-.manifesto{
-  position:relative;margin:clamp(52px,8vw,96px) 0 0;padding:clamp(38px,5vw,64px);
-  background:var(--paper);border:var(--rule);text-align:center;
-  box-shadow:0 14px 30px -20px rgba(20,17,15,.6);
-;border-radius:var(--sketch-b)}
-.manifesto p{font-family:var(--note);font-size:clamp(23px,3.6vw,42px);line-height:1.28;
-  max-width:22ch;margin:0 auto}
-.manifesto .fade{color:var(--muted)}
-.manifesto cite{display:block;margin-top:24px;font-family:var(--mono);font-size:10px;
-  letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-style:normal}
+/* margin notes — taped up crooked, never a tidy grid */
+.notes{display:flex;flex-wrap:wrap;gap:clamp(16px,2.4vw,26px);
+  margin-bottom:clamp(44px,6vw,76px)}
+.notes__n{
+  position:relative;background:var(--paper);border:var(--rule);
+  border-radius:var(--sketch-b);padding:26px 24px 22px;
+  font-size:16.5px;line-height:1.5;max-width:430px;
+  box-shadow:0 12px 24px -18px rgba(20,17,15,.6);
+  transition:transform .28s var(--ease),box-shadow .28s var(--ease),rotate .28s var(--ease);
+}
+.notes__n::before{ /* strip of tape */
+  content:"";position:absolute;top:-11px;left:26px;width:62px;height:22px;rotate:-6deg;
+  background:rgba(216,204,172,.85);box-shadow:0 2px 4px rgba(20,17,15,.15);
+  -webkit-mask:linear-gradient(90deg,transparent,#000 5px,#000 calc(100% - 5px),transparent);
+          mask:linear-gradient(90deg,transparent,#000 5px,#000 calc(100% - 5px),transparent);
+}
+.notes__n u{text-decoration:none;
+  background:linear-gradient(var(--flag),var(--flag)) no-repeat left 92%/100% 3px;
+  padding-bottom:2px}
+.notes__n:nth-child(1){flex:1 1 300px;rotate:-.9deg}
+.notes__n:nth-child(2){flex:1 1 260px;rotate:.7deg;margin-top:18px}
+.notes__n:nth-child(3){flex:1 1 230px;rotate:-.4deg}
+.notes__n:nth-child(4){flex:1 1 330px;rotate:1deg;margin-top:-10px}
+.notes__n:nth-child(2)::before{left:auto;right:30px;rotate:5deg}
+.notes__n:nth-child(4)::before{left:auto;right:24px;rotate:-4deg}
+.notes__n:hover{transform:translateY(-7px);rotate:0deg;
+  box-shadow:0 26px 38px -22px rgba(20,17,15,.65)}
+
+/* the run-on, written straight onto the wall */
+.scrawl{
+  font-family:var(--note);font-size:clamp(26px,4.6vw,50px);line-height:1.22;
+  max-width:24ch;margin:clamp(40px,6vw,76px) 0 0;rotate:-.7deg;
+}
+.scrawl__red{color:var(--flag);
+  background:linear-gradient(var(--flag),var(--flag)) no-repeat left 94%/100% 3px}
+
+/* three photos, hard black dividers — the mural sheets / Goyard panels */
+.trip--photo{grid-template-columns:repeat(3,1fr)}
+.trip--photo>figure{padding:0;overflow:hidden}
+.trip--photo img{width:100%;aspect-ratio:4/5;object-fit:cover;
+  filter:grayscale(1) contrast(1.09);transition:filter .5s,transform .7s var(--ease)}
+.trip--photo figure:hover img{filter:grayscale(0) contrast(1);transform:scale(1.04)}
+.trip--photo figcaption{display:block;padding:16px 18px 20px;border-top:var(--rule);
+  font-family:var(--hand);font-size:16px;text-transform:lowercase;background:var(--paper)}
+.trip--photo figcaption span{display:block;margin-top:6px;font-family:'Archivo',sans-serif;
+  font-size:14px;line-height:1.45;color:var(--graphite);text-transform:none}
+@media(max-width:820px){.trip--photo{grid-template-columns:1fr}}
+
+/* caption burned into the picture, like the screen-recorded artwork */
+.burn{position:relative;margin-top:clamp(30px,4vw,52px);border:var(--rule);
+  overflow:hidden;background:var(--wall-2)}
+.burn img{width:100%;aspect-ratio:21/9;object-fit:cover;object-position:center 28%;
+  filter:grayscale(1) contrast(1.05) brightness(.9)}
+.burn__cap{
+  position:absolute;left:0;right:0;bottom:0;
+  padding:clamp(26px,5vw,56px) clamp(20px,4vw,48px) clamp(18px,3vw,32px);
+  font-family:var(--note);font-size:clamp(19px,2.8vw,32px);line-height:1.25;
+  color:#fff;text-align:center;text-shadow:0 2px 10px rgba(0,0,0,.7);
+  background:linear-gradient(180deg,transparent,rgba(0,0,0,.62));
+}
+
+/* nothing on this page shouts in caps */
+#v-about .rail__dot{text-transform:lowercase;font-size:16px}
+#v-about .kicker{text-transform:lowercase;letter-spacing:.14em}
 
 /* ================================================================
    01c · THE SEA — chapter 3

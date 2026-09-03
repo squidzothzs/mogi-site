@@ -84,6 +84,13 @@ body and the big display numbers.
 hand never closes square. Buttons also carry a `::before` ghost outline, offset a few pixels:
 the marker going round twice.
 
+**About page (v3).** Deliberately not a slide deck. No three-up feature cards, no numbered
+step list — those read as generic. Instead: hand-lettered headings (`.display--hand`), a
+speech bubble off the mascot (`.say` / `.bubble`), margin notes taped up crooked at four
+different widths and rotations (`.notes__n`), a run-on written straight on the wall
+(`.scrawl`), a hard-divider photo triptych (`.trip--photo`), and a caption burned into the
+photograph (`.burn`). Copy is lowercase and blunt, in the founder's own voice.
+
 **Motifs.**
 - `.pin` — a white pushpin. Drop one inside any `position:relative` block.
 - `.section-h` — marker-stroke underline; it is an SVG mask (`--stroke`), so it takes the
